@@ -7,3 +7,5 @@ const addStudentBtn = document.getElementById("addStudentBtn"); // Récupératio
 function addStudent() {
     console.log("fonction appelée"); // pour vérifier que la fonction est bien appelée
 }
+
+addStudentBtn.addEventListener("click", addStudent); // Ajout d'un écouteur d'événement pour le clic sur le bouton
