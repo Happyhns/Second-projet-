@@ -9,3 +9,35 @@ function addStudent() {
 }
 
 addStudentBtn.addEventListener("click", addStudent); // Ajout d'un écouteur d'événement pour le clic sur le bouton
+
+function addStudent() {
+    const name = studentName.value; // Récupération de la valeur de l'input
+    console.log(name); // Affichage du nom dans la console 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
