@@ -15,9 +15,10 @@ function addStudent() {
     console.log(name); // Affichage du nom dans la console 
 }
 
-
-
-
+if (name.trim() === "") { // Vérification si le champ est vide ou contient uniquement des espaces
+    alert("Veuillez entrer un nom d'étudiant."); // Affichage d'une alerte si le champ est vide
+    return; // Sortie de la fonction si le champ est vide
+}
 
 
 
