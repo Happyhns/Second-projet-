@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -16,6 +16,10 @@
                 <button>Save Note</button> <!-- Bouton pour enregistrer la note de l'étudiant -->
                 <input type="text" id="search" placeholder="Rechercher..."> <!-- Champ de saisie pour la recherche d'étudiants -->
 
+                <!-- Meilleur étudiant -->
+                <h2>Best Student</h2>
+                <p id="bestStudent">No students added yet.</p> <!-- Paragraphe pour afficher le meilleur étudiant -->
+
                 <!-- Tableau de notes -->
                 <table>
                     <thead>
@@ -23,11 +27,16 @@
                             <th>Name</th> <!-- En-tête de colonne pour le nom de l'étudiant -->    
                             <th>Notes</th> <!-- En-tête de colonne pour les notes de l'étudiant -->
                             <th>Average</th> <!-- En-tête de colonne pour la moyenne des notes de l'étudiant -->
-                        </tr> 
-                    </thead>
+                        </tr>
+                    </thead> 
+                        <!-- Corps du tableau rempli dynamiquement avec JS -->
+                        <tbody id="tableBody">
+                            <!-- Les lignes seront ajoutées ici -->
+                        </tbody>
                 </table>
 
 
             </section>
         </body>
 </html>
+
