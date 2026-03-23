@@ -59,9 +59,12 @@ saveNoteBtn.addEventListener("click", () => {
 });
 
 
+searchInput.addEventListener("input", () => {
+    const value = searchInput.value.trim().toLowerCase(); // Récupère et nettoie la valeur de recherche 
 
-
-
+    const filtered  = students.filter(s => s.name.toLowerCase().includes(value)); // Filtre les étudiants dont le nom contient la valeur de recherche
+    updateStudentTable(filtered); // Met à jour le tableau avec les étudiants filtrés
+});
 
 
 
