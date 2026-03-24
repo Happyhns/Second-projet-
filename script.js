@@ -1,77 +1,92 @@
-// script principal
+const nameInput = document.getElementById("studentName");
+const addStudentBtn = document.getElementById("addStudentBtn");
+const studentSelect = document.getElementById("studentSelect");
+const noteInput = document.getElementById("noteInput");
+const addNoteBtn = document.getElementById("addNoteBtn");
+const table = document.getElementById("studentTable");
+const searchInput = document.getElementById("searchInput");
+const bestStudentDisplay = document.getElementById("bestStudent");
 
-const studentNameInput = document.getElementById("studentName"); // Récupère l'élément d'entrée pour le nom de l'étudiant
-const addStudentBtn = document.getElementById("addStudentBtn"); // Récupère le bouton pour ajouter un étudiant
-const studentSelect = document.getElementById("studentSelect"); // Récupère l'élément de sélection pour les étudiants
-const noteInput = document.getElementById("noteInput"); // Récupère l'élément d'entrée pour la note de l'étudiant
-const saveNoteBtn = document.getElementById("saveNoteBtn"); // Récupère le bouton pour enregistrer la note de l'étudiant
-const searchInput = document.getElementById("searchInput"); // Récupère l'élément d'entrée pour la recherche d'étudiants
-const bestStudentText = document.getElementById("bestStudent"); // Récupère l'élément de texte pour afficher le meilleur étudiant
-const tableBody = document.getElementById("tableBody"); // Récupère le corps du tableau pour afficher les étudiants et leurs notes
+function renderStudents(list = students) {
+    table.innerHTML = "";
+
+    list.forEach(student => {
+        let row = document.createElement("tr");
+
+        let nameTd = document.createElement("td");
+        nameTd.textContent = student.name;
+
+        let notesTd = document.createElement("td");
+        notesTd.textContent = student.notes.join(", ");
+
+        let avgTd = document.createElement("td");
+        avgTd.textContent = calculMoyenne(student.notes);
+
+        row.appendChild(nameTd);
+        row.appendChild(notesTd);
+        row.appendChild(avgTd);
+
+        table.appendChild(row);
+    });
+
+    let best = getBestStudent();
+    if (best) {
+        bestStudentDisplay.textContent = "Meilleur: " + best.name;
+    }
+}
+
+function updateSelect() {
+    studentSelect.innerHTML = "";
+
+    students.forEach((student, index) => {
+        let option = document.createElement("option");
+        option.value = index;
+        option.textContent = student.name;
+        studentSelect.appendChild(option);
+    });
+}
 
 addStudentBtn.addEventListener("click", () => {
     try {
-        const name = studentNameInput.value.trim(); // Récupère et nettoie le nom de l'étudiant
+        let name = nameInput.value.trim();
 
-        if (name === "") {
-            alert("Veuillez entrer un nom d'étudiant valide."); // Affiche une alerte si le nom est vide
-            return;
-        }
+        if (!name) throw "Nom vide";
+        if (students.some(s => s.name === name)) throw "Doublon";
 
-        students.push({ name: name, note: null }); // Ajoute un nouvel étudiant au tableau avec une note nulle
-        updateStudentSelect(); // Met à jour la liste déroulante des étudiants
-        studentNameInput.value = ""; // Réinitialise le champ de saisie du nom de l'étudiant
+        students.push({ name: name, notes: [] });
+
+        nameInput.value = "";
+        updateSelect();
+        renderStudents();
+
+    } catch (error) {
+        alert(error);
     }
-    catch (error) {
-        console.error("Erreur lors de l'ajout de l'étudiant:", error); // Affiche une erreur dans la console en cas de problème
-
-}
-
 });
 
-
-saveNoteBtn.addEventListener("click", () => {
+addNoteBtn.addEventListener("click", () => {
     try {
-        const selectedName = studentSelect.value; // Récupère le nom de l'étudiant sélectionné
-        const note = Number(noteInput.value); // Récupère et convertit la note saisie en nombre
+        let index = studentSelect.value;
+        let note = parseFloat(noteInput.value);
 
-        if (isNaN(note) || note < 0 || note > 20) {
-            alert("Veuillez entrer une note valide entre 0 et 20."); // Affiche une alerte si la note n'est pas valide
-            return;
-        }
+        if (isNaN(note) || note < 0 || note > 20) throw "Note invalide";
 
-        const student = students.find(s => s.name === selectedName); // Trouve l'étudiant correspondant au nom sélectionné
-        if (!student) {
-            alert("Étudiant non trouvé."); // Affiche une alerte si l'étudiant n'est pas trouvé
-            return;
-        }
+        students[index].notes.push(note);
 
-        student.note = note; // Met à jour la note de l'étudiant
-        updateBestStudent(); // Met à jour l'affichage du meilleur étudiant
-        updateStudentTable(); // Met à jour le tableau des étudiants et leurs notes
-        noteInput.value = ""; // Réinitialise le champ de saisie de la note
-    }
+        noteInput.value = "";
+        renderStudents();
 
-    catch (error) {
-        alert("Erreur lors de l'enregistrement de la note."); // Affiche une alerte en cas d'erreur lors de l'enregistrement de la note
-
+    } catch (error) {
+        alert(error);
     }
 });
-
 
 searchInput.addEventListener("input", () => {
-    const value = searchInput.value.trim().toLowerCase(); // Récupère et nettoie la valeur de recherche 
+    let value = searchInput.value.toLowerCase();
 
-    const filtered  = students.filter(s => s.name.toLowerCase().includes(value)); // Filtre les étudiants dont le nom contient la valeur de recherche
-    updateStudentTable(filtered); // Met à jour le tableau avec les étudiants filtrés
+    let filtered = students.filter(student =>
+        student.name.toLowerCase().includes(value)
+    );
+
+    renderStudents(filtered);
 });
-
-
-
-
-
-
-
-
-
-

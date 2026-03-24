@@ -1,45 +1,96 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Student Dashboard</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-        <body>
-            <h1>Student Dashboard</h1> <!-- Titre de la page -->
-            <section>
-                <h2>Add student</h2>
-                <input type="text" id="studentName" placeholder="Nom de l'étudiant"> <!-- Champ de saisie pour le nom de l'étudiant -->
-                <button id="addStudentBtn">Add</button> <!-- Bouton pour ajouter l'étudiant -->
-                <select id="studentSelect"></select> <!-- Liste déroulante pour sélectionner un étudiant -->
-                <input type="number" id="noteInput" placeholder="Note"> <!-- Champ de saisie pour la note de l'étudiant -->
-                <button id="saveNoteBtn">Save Note</button> <!-- Bouton pour enregistrer la note de l'étudiant -->
-                <input type="text" id="search" placeholder="Rechercher..."> <!-- Champ de saisie pour la recherche d'étudiants -->
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des étudiants</title>
 
-                <!-- Meilleur étudiant -->
-                <h2>Best Student</h2>
-                <p id="bestStudent">No students added yet.</p> <!-- Paragraphe pour afficher le meilleur étudiant -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-                <!-- Tableau de notes -->
-                <table>
-                    <thead>
+<body class="bg-gray-100 text-gray-800 p-6">
+
+    <h1 class="text-2xl font-semibold mb-6 flex items-center gap-2">
+        📊 Gestion des étudiants
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- COLONNE GAUCHE -->
+        <div class="space-y-6">
+
+            <!-- Ajouter étudiant -->
+            <div class="bg-white p-5 rounded-xl shadow">
+                <h2 class="text-sm font-semibold mb-3">Ajouter un étudiant</h2>
+
+                <input id="studentName" type="text" placeholder="Nom"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <button id="addStudentBtn"
+                    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                    Ajouter
+                </button>
+            </div>
+
+            <!-- Ajouter note -->
+            <div class="bg-white p-5 rounded-xl shadow">
+                <h2 class="text-sm font-semibold mb-3">Ajouter une note</h2>
+
+                <select id="studentSelect"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </select>
+
+                <input id="noteInput" type="number" placeholder="Note"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <button id="addNoteBtn"
+                    class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+                    Ajouter note
+                </button>
+            </div>
+
+        </div>
+
+        <!-- COLONNE DROITE -->
+        <div class="md:col-span-2 bg-white p-5 rounded-xl shadow">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-sm font-semibold">Liste des étudiants</h2>
+
+                <input id="searchInput" type="text" placeholder="Rechercher..."
+                    class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Tableau -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+
+                    <thead class="bg-gray-100 text-gray-500 uppercase text-xs">
                         <tr>
-                            <th>Name</th> <!-- En-tête de colonne pour le nom de l'étudiant -->    
-                            <th>Notes</th> <!-- En-tête de colonne pour les notes de l'étudiant -->
-                            <th>Average</th> <!-- En-tête de colonne pour la moyenne des notes de l'étudiant -->
+                            <th class="text-left px-4 py-3">Nom</th>
+                            <th class="text-left px-4 py-3">Notes</th>
+                            <th class="text-left px-4 py-3">Moyenne</th>
                         </tr>
-                    </thead> 
-                        <!-- Corps du tableau rempli dynamiquement avec JS -->
-                        <tbody id="tableBody">
-                            <!-- Les lignes seront ajoutées ici -->
-                        </tbody>
+                    </thead>
+
+                    <tbody id="studentTable" class="divide-y">
+                    </tbody>
+
                 </table>
+            </div>
 
-                <!-- JavaScript -->
-                <script src="script.js"></script> <!-- Lien vers le fichier JavaScript pour la logique de l'application -->
-                <script src="functions.js"></script> <!-- Lien vers le fichier JavaScript pour les fonctions utilitaires -->
-                <script src="arrays.js"></script> <!-- Lien vers le fichier JavaScript pour la fonctionnalité de recherche -->
-            </section>
-        </body>
+            <!-- Meilleur étudiant -->
+            <div id="bestStudent"
+                class="mt-4 bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-lg text-sm">
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="arrays.js"></script>
+    <script src="functions.js"></script>
+    <script src="script.js"></script>
+
+</body>
 </html>
-
