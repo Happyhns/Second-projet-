@@ -1,80 +1,129 @@
-body
-{
-    font-family: Arial, sans-serif; /* Police d'écriture pour l'ensemble de la page */
-    background-color: #de9b9b; /* Couleur de fond de la page */
-    margin: 0; /* Supprimer les marges par défaut du navigateur */
-    padding: 20px; /* Ajouter un peu d'espace autour du contenu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#studentName{
-    padding: 10px; /* Ajouter de l'espace à l'intérieur du champ de saisie */
-    font-size: 16px; /* Augmenter la taille de la police pour une meilleure lisibilité */
-    width: 200px; /* Définir une largeur pour le champ de saisie */
-    margin-right: 10px; /* Ajouter un espace à droite du champ de saisie */
-    border-radius: 10px; /* Ajouter des coins arrondis au champ de saisie */
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #f9fafb;
+    color: #111827;
+    padding: 40px;
 }
 
-#addStudentBtn {
-    padding: 10px 20px; /* Ajouter de l'espace à l'intérieur du bouton */
-    font-size: 16px; /* Augmenter la taille de la police pour une meilleure lisibilité */
-    background-color: #4CAF50; /* Couleur de fond du bouton */
-    color: white; /* Couleur du texte du bouton */
-    border: none; /* Supprimer les bordures par défaut du bouton */
-    border-radius: 10px; /* Ajouter des coins arrondis au bouton */
-    cursor: pointer; /* Changer le curseur lorsque l'on survole le bouton */
+/* Titre */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-#addStudentBtn:hover {
-    background-color: #45a049; /* Changer la couleur de fond du bouton au survol */
+/* Inputs & boutons */
+input, select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background-color: white;
+    transition: all 0.2s ease;
 }
 
-#noteInput {
-    padding: 10px; /* Ajouter de l'espace à l'intérieur du champ de saisie */
-    font-size: 16px; /* Augmenter la taille de la police pour une meilleure lisibilité */
-    width: 100px; /* Définir une largeur pour le champ de saisie */
-    margin-right: 10px; /* Ajouter un espace à droite du champ de saisie */
-    border-radius: 10px; /* Ajouter des coins arrondis au champ de saisie */
+input:focus, select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-#saveNoteBtn {
-    padding: 10px 20px; /* Ajouter de l'espace à l'intérieur du bouton */
-    font-size: 16px; /* Augmenter la taille de la police pour une meilleure lisibilité */
-    background-color: #4CAF50; /* Couleur de fond du bouton */
-    color: white; /* Couleur du texte du bouton */
-    border: none; /* Supprimer les bordures par défaut du bouton */
-    border-radius: 10px; /* Ajouter des coins arrondis au bouton */
-    cursor: pointer; /* Changer le curseur lorsque l'on survole le bouton */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-#saveNoteBtn:hover {
-    background-color: #45a049; /* Changer la couleur de fond du bouton au survol */
+button:hover {
+    background-color: #1d4ed8;
 }
 
-#searchInput {
-    padding: 10px; /* Ajouter de l'espace à l'intérieur du champ de saisie */
-    font-size: 16px; /* Augmenter la taille de la police pour une meilleure lisibilité */
-    width: 200px; /* Définir une largeur pour le champ de saisie */
-    margin-right: 10px; /* Ajouter un espace à droite du champ de saisie */
+/* Layout spacing */
+input, select, button {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-#bestStudent {
-    margin-top: 20px; /* Ajouter un espace au-dessus du conteneur du meilleur étudiant */
-    padding: 10px; /* Ajouter de l'espace à l'intérieur du conteneur du meilleur étudiant */
-    background-color: #f2f2f2; /* Couleur de fond du conteneur du meilleur étudiant */
-    width: 200px; /* Définir une largeur pour le conteneur du meilleur étudiant */
-    border-radius: 10px; /* Ajouter des coins arrondis au conteneur du meilleur étudiant */
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Header */
+thead {
+    background-color: #f3f4f6;
+}
 
+th {
+    text-align: left;
+    padding: 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+}
 
+/* Cellules */
+td {
+    padding: 14px;
+    font-size: 14px;
+}
 
+/* STRIPED ROWS */
+tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
 
+/* Hover effet */
+tbody tr:hover {
+    background-color: #eef2ff;
+}
 
+/* Bordures légères */
+th, td {
+    border-bottom: 1px solid #e5e7eb;
+}
 
+/* Dernière ligne sans bordure */
+tbody tr:last-child td {
+    border-bottom: none;
+}
 
+/* Meilleur étudiant */
+.best {
+    background-color: #dcfce7 !important;
+    font-weight: 500;
+}
 
+/* Responsive simple */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
 
+    table {
+        font-size: 12px;
+    }
 
-
-
-
+    input, button, select {
+        width: 100%;
+        margin-right: 0;
+    }
+}
