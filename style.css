@@ -1,129 +1,129 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* supprimer les marges par défaut de tous les éléments pour un contrôle total du layout */
+    padding: 0; /* supprimer les paddings par défaut de tous les éléments pour un contrôle total du layout */
+    box-sizing: border-box; /* inclure les bordures et les paddings dans la taille totale des éléments pour un calcul plus intuitif des dimensions */
 }
 
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background-color: #f9fafb;
-    color: #111827;
-    padding: 40px;
+    font-family: "Inter", Arial, sans-serif; /* utiliser une police moderne et lisible pour une meilleure expérience utilisateur */
+    background-color: #f9fafb; /* couleur de fond claire et neutre pour un look propre et professionnel */
+    color: #111827; /* couleur de texte sombre pour un bon contraste et une meilleure lisibilité */
+    padding: 40px; /* ajouter de l'espace autour du contenu pour éviter que les éléments ne soient collés aux bords de la fenêtre */
 }
 
 /* Titre */
 h1 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 28px; /* taille de police pour le titre */
+    font-weight: 600; /* graisse de la police pour le titre */
+    margin-bottom: 20px; /* marge en bas pour l'espace entre le titre et le contenu suivant */
 }
 
 /* Inputs & boutons */
 input, select {
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    outline: none;
-    font-size: 14px;
-    background-color: white;
-    transition: all 0.2s ease;
+    padding: 10px 12px; /* ajouter de l'espace à l'intérieur des inputs et selects */
+    border: 1px solid #d1d5db; /* bordure grise claire pour un look moderne et discret */
+    border-radius: 8px; /* arrondir les coins des inputs et selects pour un design plus doux et moderne */
+    outline: none; /* supprimer le contour par défaut lors du focus pour personnaliser l'effet de focus */
+    font-size: 14px; /* taille de police pour les inputs et selects */
+    background-color: white; /* couleur de fond blanche pour les inputs et selects pour un bon contraste avec le texte */
+    transition: all 0.2s ease; /* ajouter une transition pour les effets de focus et de hover pour une expérience utilisateur plus fluide */
 }
 
 input:focus, select:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    border-color: #2563eb; /* changer la couleur de la bordure lors du focus pour indiquer clairement que l'élément est actif */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* ajouter une ombre légère autour de l'élément lors du focus pour un effet visuel plus agréable et pour renforcer l'indication de focus */
 }
 
 button {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 8px;
-    background-color: #2563eb;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    padding: 10px 14px; /* ajouter de l'espace à l'intérieur des boutons pour les rendre plus cliquables et confortables à utiliser */
+    border: none; /* supprimer la bordure par défaut des boutons pour un look plus moderne et épuré */
+    border-radius: 8px; /* arrondir les coins des boutons pour un design plus doux et moderne */
+    background-color: #2563eb; /* couleur de fond bleue pour les boutons pour les faire ressortir et attirer l'attention de l'utilisateur */
+    color: white; /* couleur de texte blanche pour un bon contraste avec le fond bleu des boutons */
+    font-weight: 500; /* graisse de la police pour les boutons pour les rendre plus visibles et faciles à lire */
+    cursor: pointer; /* changer le curseur en pointeur pour indiquer que les boutons sont cliquables */
+    transition: all 0.2s ease; /* ajouter une transition pour les effets de hover pour une expérience utilisateur plus fluide */
 }
 
 button:hover {
-    background-color: #1d4ed8;
+    background-color: #1d4ed8; /* changer la couleur de fond des boutons lors du hover pour fournir un feedback visuel à l'utilisateur et rendre l'interface plus interactive */
 }
 
 /* Layout spacing */
-input, select, button {
-    margin-right: 10px;
-    margin-bottom: 10px;
+input, select, button { 
+    margin-right: 10px; /* ajouter une marge à droite pour espacer les éléments du formulaire les uns des autres */
+    margin-bottom: 10px; /* ajouter une marge en bas pour espacer les éléments du formulaire les uns des autres, surtout sur les petits écrans où les éléments peuvent se retrouver sur plusieurs lignes */
 }
 
 /* Tableau */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%; /* faire en sorte que le tableau prenne toute la largeur disponible pour un meilleur affichage des données */
+    border-collapse: collapse; /* supprimer les espaces entre les cellules du tableau pour un look plus propre et professionnel */
+    margin-top: 30px; /* ajouter une marge en haut pour espacer le tableau du contenu précédent */
+    background: white; /* couleur de fond blanche pour le tableau pour un bon contraste avec les données et une meilleure lisibilité */
+    border-radius: 12px; /* arrondir les coins du tableau pour un design plus doux et moderne */
+    overflow: hidden; /* masquer les débordements pour que les coins arrondis soient visibles et que le contenu ne dépasse pas du tableau */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* ajouter une ombre légère pour donner de la profondeur au tableau et le faire ressortir du fond */
 }
 
 /* Header */
 thead {
-    background-color: #f3f4f6;
+    background-color: #f3f4f6; /* couleur de fond pour l'en-tête du tableau pour le différencier du reste du tableau et améliorer la lisibilité des titres de colonnes */
 }
 
 th {
-    text-align: left;
-    padding: 14px;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #6b7280;
+    text-align: left; /* aligner le texte des en-têtes de colonnes à gauche pour une meilleure lisibilité et un look plus professionnel */
+    padding: 14px; /* ajouter de l'espace à l'intérieur des cellules d'en-tête pour les rendre plus lisibles et esthétiques */
+    font-size: 13px; /* taille de police pour les en-têtes de colonnes pour les différencier du reste du tableau et les rendre plus visibles */
+    text-transform: uppercase; /* transformer le texte des en-têtes de colonnes en majuscules pour les différencier du reste du tableau et leur donner un look plus formel */
+    letter-spacing: 0.05em; /* ajouter un espacement entre les lettres des en-têtes de colonnes pour les rendre plus lisibles et esthétiques */
+    color: #6b7280; /* couleur de texte grise pour les en-têtes de colonnes pour les différencier du reste du tableau et leur donner un look plus subtil et professionnel */
 }
 
 /* Cellules */
 td {
-    padding: 14px;
-    font-size: 14px;
+    padding: 14px; /* ajouter de l'espace à l'intérieur des cellules pour les rendre plus lisibles et esthétiques */
+    font-size: 14px; /* taille de police pour les cellules du tableau pour une bonne lisibilité des données */
 }
 
 /* STRIPED ROWS */
-tbody tr:nth-child(even) {
-    background-color: #f9fafb;
+tbody tr:nth-child(even) { /* appliquer une couleur de fond différente pour les lignes paires du tableau pour améliorer la lisibilité et faciliter la distinction entre les lignes */
+    background-color: #f9fafb; /* couleur de fond pour les lignes paires du tableau pour un look propre et professionnel, et pour améliorer la lisibilité des données en créant un contraste visuel entre les lignes */
 }
 
 /* Hover effet */
-tbody tr:hover {
-    background-color: #eef2ff;
+tbody tr:hover { /* appliquer une couleur de fond différente lors du survol d'une ligne du tableau pour fournir un feedback visuel à l'utilisateur et rendre l'interface plus interactive */
+    background-color: #eef2ff; /* couleur de fond pour le hover sur les lignes du tableau pour un look propre et professionnel, et pour fournir un feedback visuel à l'utilisateur en mettant en évidence la ligne sur laquelle il se trouve */
 }
 
 /* Bordures légères */
-th, td {
-    border-bottom: 1px solid #e5e7eb;
+th, td { 
+    border-bottom: 1px solid #e5e7eb; /* ajouter une bordure légère en bas des cellules pour séparer visuellement les lignes du tableau et améliorer la lisibilité des données */
 }
 
 /* Dernière ligne sans bordure */
 tbody tr:last-child td {
-    border-bottom: none;
+    border-bottom: none; /* supprimer la bordure en bas de la dernière ligne du tableau pour un look plus propre et éviter une bordure inutile à la fin du tableau */
 }
 
 /* Meilleur étudiant */
 .best {
-    background-color: #dcfce7 !important;
-    font-weight: 500;
+    background-color: #dcfce7 !important; /* couleur de fond verte pour mettre en évidence le meilleur étudiant dans le tableau, avec !important pour s'assurer que ce style est appliqué même si d'autres styles pourraient entrer en conflit */
+    font-weight: 500; /* graisse de la police pour le meilleur étudiant pour le différencier du reste du tableau et le faire ressortir */
 }
 
 /* Responsive simple */
-@media (max-width: 600px) {
+@media (max-width: 600px) { /* appliquer des styles spécifiques pour les écrans de 600px de large ou moins pour améliorer l'affichage sur les appareils mobiles */
     body {
-        padding: 20px;
+        padding: 20px; /* réduire le padding du body pour les petits écrans afin de maximiser l'espace disponible pour le contenu */
     }
 
     table {
-        font-size: 12px;
+        font-size: 12px; /* réduire la taille de la police du tableau pour les petits écrans afin de mieux s'adapter à l'espace limité et maintenir la lisibilité des données */
     }
 
     input, button, select {
-        width: 100%;
-        margin-right: 0;
+        width: 100%; /* faire en sorte que les inputs, boutons et selects prennent toute la largeur disponible sur les petits écrans pour une meilleure utilisabilité et un look plus adapté aux mobiles */
+        margin-right: 0; /* supprimer la marge à droite pour les petits écrans afin que les éléments prennent toute la largeur disponible sans espace inutile */
     }
 }
